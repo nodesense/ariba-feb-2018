@@ -1,0 +1,39 @@
+<h2>About</h2>
+
+<button (click)="show = !show">
+    Show/Hide
+</button>
+
+<p [ngClass]="{highlight: show, border: !show}">
+  Angular Compoent, Pipe
+</p>
+
+<app-like 
+        *ngIf="show" 
+        [(likes)]="aboutLikes" 
+        appHighlight >
+   <!-- content area -->
+
+   <!-- transclude -->
+  <h4>About Likes</h4>
+
+</app-like>
+
+<div *ngIf="show else listNotShown"  appHighlight >
+  <h2>Team Members</h2>
+
+  <ul>
+    <li *ngFor="let name of members;let i=index;let k=even;">
+      <span [class]="k? 'odd': 'even' " > {{i}}-{{name}}-{{k}}</span>
+    </li>
+  </ul>
+
+</div>
+
+<!-- # reference variable -->
+
+<ng-template #listNotShown>
+  <div>
+    <p>List is not displayed</p>
+  </div>
+</ng-template>

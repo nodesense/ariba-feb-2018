@@ -1,0 +1,53 @@
+<h2>Home</h2>
+
+<h2>Page Views {{pageViews}} </h2>
+
+<button (click)='incrementPageView()'>
+  +1 Page
+</button>
+
+<p> Counter {{counter}}</p>
+
+<p> Counter Power {{counter | power:2}}</p>
+
+
+<p> Counter * 100 {{counter * 100}}</p>
+
+<!-- one way binding -->
+
+<input [ngModel]="counter"
+       (ngModelChange)="counter=$event"
+       type="number" 
+/>
+
+<!-- alternative format -->
+<input [(ngModel)]="counter" type="number"  />
+
+
+<!-- property binding using [ ] --> 
+<input [value]="counter * 10" />
+
+
+<button [disabled]="counter % 2 == 0">
+  {{ counter % 2 == 0?'Even': 'Odd' }}
+</button>
+
+<!-- predefiend key word $event -->
+
+<button (click)="incr($event, 2)">
+  +1
+</button>
+
+<button (click)="counter = counter -1">
+  -1
+</button>
+
+<app-like [(likes)]="counter" >
+</app-like>
+
+<!-- 
+<app-like [likes]="counter"
+          (likesChange)="counter=$event"
+>
+
+</app-like> -->

@@ -1,0 +1,33 @@
+<h2>{{title | uppercase}}</h2>
+
+<p> Price {{price | currency:'INR' }} </p>
+
+<!-- elvis operator .? -->
+
+<p>City: {{address?.city}}</p>
+
+<!-- chain -->
+<p> Date: {{date | date:'fullDate' | lowercase }} </p>
+
+<p>JSON {{address | json}}</p>
+
+<p>Power {{ 2 | power:3 | power:2 }} </p>
+
+<p>Power default expo {{ 3 | power }}</p>
+
+<!-- # reference variable -->
+
+<!-- para1 is dom element reference -->
+
+<input #inp1 />
+
+<p #para1>
+</p>
+
+<button (click)="para1.textContent = inp1.value" >
+  Set Text
+</button>
+
+<button (click)="inp1.focus()">
+  Focus
+</button>

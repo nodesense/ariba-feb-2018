@@ -1,0 +1,28 @@
+<!-- exportAs -->
+
+<div appHighlight   #myHighlight="appHighlight">
+  <hr />
+
+  <!-- myHighlight is a instance of apphighlight -->
+
+  <p> Highlight Color {{myHighlight.color}}</p>
+
+  <button (click)="myHighlight.sayHello()">
+    Hello Directive
+  </button>
+
+  <!-- pageViews$ is observable -->
+
+  <!-- asyc automatically subcribe -->
+  
+  <p>Page Views {{pageViews$ | async }}</p>
+
+  <p>Copyrights {{title}}, {{year}}</p>
+
+  <p>Address: {{addr.city}}</p>
+
+  <button (click)="contact()">
+    Contact
+  </button>
+
+</div>

@@ -1,0 +1,80 @@
+<h2>Product {{product.id? 'Edit' : 'Create '}} - {{product.name}}</h2>
+
+<button (click)="gotoList()">
+  Cancel
+</button>
+
+<form (ngSubmit)="saveProduct()" #productForm="ngForm" >
+ 
+
+    <p *ngIf="productForm.invalid">
+        Invalid Form 
+      </p>
+    
+    
+      <p *ngIf="productForm.dirty">
+           Form  changed
+      </p>
+ 
+ 
+  Name
+  <input   name="name"
+           [(ngModel)]="product.name"
+
+           required
+           minlength="2"
+
+           #productName="ngModel"
+  />
+
+  <p *ngIf="productName.invalid">
+    Invalid Product name
+  </p>
+
+
+  <p *ngIf="productName.dirty">
+       Product name changed
+    </p>
+
+
+  Price
+  <input   name="price"
+           [(ngModel)]="product.price"
+           type="number"
+
+           required
+           pattern="[0-9]{3}"
+
+           #productPrice="ngModel"
+
+
+  />
+
+
+  Year
+  <input   name="year"
+           [(ngModel)]="product.year"
+           type="number"
+  />
+
+  Brand
+
+  <select name="brandId"
+          [(ngModel)]="product.brandId">
+  
+      <option  *ngFor="let brand of brands$ | async"
+               [value]="brand.id">
+               {{brand.name}}
+      </option>
+          
+
+  </select>
+
+
+  <button type="submit" [disabled]="productForm.invalid">
+    Save
+  </button>
+
+  
+
+</form>

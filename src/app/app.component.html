@@ -1,0 +1,50 @@
+<!-- component view -->
+
+<!-- HTML Parent -> child -->
+
+<!-- NG Component parent -> child -->
+
+<!-- div is a host element -->
+
+
+<div appHighlight  color='yellow'>
+    <h1>Welcome to {{title}}</h1>
+</div>
+
+<!-- App is parent component for app-header -->
+<!-- html, div is parent tag for app-header tag -->
+
+<div>
+        <app-header>
+        </app-header>
+</div>
+
+
+<!-- from router module, place holder for view -->
+<!-- content of either home, about, etc placed here -->
+
+<router-outlet>
+</router-outlet>
+
+
+<!-- 
+<app-about>
+</app-about>
+
+<app-contact>
+</app-contact>
+
+<app-home>
+</app-home> -->
+
+<!-- property binding -->
+
+<app-footer [title]="title" 
+            [year]="year"
+            [addr]="address"
+
+            (contactEvent)="onContact($event)"
+            
+            >
+</app-footer>
+

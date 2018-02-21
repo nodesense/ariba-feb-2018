@@ -1,0 +1,37 @@
+<h2>Product List</h2>
+
+<button (click)="fetchProducts()">
+  Refresh
+</button>
+
+
+<table>
+  <tbody>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Year</th>
+      <th>Operation</th>
+    </tr>
+
+    <!-- *ngFor="let product of (products$ | async);trackBy:trackByProductId -->
+
+    <tr *ngFor="let product of products;trackBy:trackByProductId">
+      <td>
+        <a [routerLink]="['/', 'products', 'edit', product.id ]">
+          
+         {{product.name}}
+
+        </a>
+        
+        </td>
+      <td>{{product.price}}</td>
+      <td>{{product.year}}</td>
+      <td> 
+        <button (click)="deleteProduct(product.id)">
+         Delete
+      </button>
+    </td>
+    </tr>
+  </tbody>
+</table>

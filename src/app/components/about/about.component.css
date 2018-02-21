@@ -1,0 +1,15 @@
+.even {
+    background: lightgray;
+}
+
+.odd {
+    background: lightgreen;
+}
+
+.highlight {
+    background: lightcoral;
+}
+
+.border {
+    border: 2px solid red;
+}
